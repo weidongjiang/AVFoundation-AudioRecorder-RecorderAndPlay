@@ -110,6 +110,7 @@
 				TargetAttributes = {
 					76D89B151DB5B1D400B1CE89 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 3ZPP94SLYH;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -270,6 +271,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3ZPP94SLYH;
 				INFOPLIST_FILE = "JWD-AVFoundation-AudioRecorder-RecorderAndPlay/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yixia.JWD-AVFoundation-AudioRecorder-RecorderAndPlay";
@@ -281,6 +283,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3ZPP94SLYH;
 				INFOPLIST_FILE = "JWD-AVFoundation-AudioRecorder-RecorderAndPlay/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yixia.JWD-AVFoundation-AudioRecorder-RecorderAndPlay";
@@ -307,6 +310,7 @@
 				76D89B2F1DB5B1D400B1CE89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
