@@ -16,6 +16,8 @@
 		76D89B291DB5B1D400B1CE89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76D89B271DB5B1D400B1CE89 /* LaunchScreen.storyboard */; };
 		76EE970E1DD86DE20001070C /* JWDRecorderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EE970D1DD86DE20001070C /* JWDRecorderModel.m */; };
 		76EE97111DD871C50001070C /* JWDRecorderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EE97101DD871C50001070C /* JWDRecorderCell.m */; };
+		76EE97141DD898330001070C /* JWDMeterArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EE97131DD898330001070C /* JWDMeterArray.m */; };
+		76EE97171DD89D990001070C /* JWDAudioRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EE97161DD89D990001070C /* JWDAudioRecordView.m */; };
 		7A4F889ADF3D418FF4E8F177 /* libPods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0625E295CCBFA08C9D156B7D /* libPods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay.a */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,10 @@
 		76EE970D1DD86DE20001070C /* JWDRecorderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWDRecorderModel.m; sourceTree = "<group>"; };
 		76EE970F1DD871C50001070C /* JWDRecorderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWDRecorderCell.h; sourceTree = "<group>"; };
 		76EE97101DD871C50001070C /* JWDRecorderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWDRecorderCell.m; sourceTree = "<group>"; };
+		76EE97121DD898330001070C /* JWDMeterArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWDMeterArray.h; sourceTree = "<group>"; };
+		76EE97131DD898330001070C /* JWDMeterArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWDMeterArray.m; sourceTree = "<group>"; };
+		76EE97151DD89D990001070C /* JWDAudioRecordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWDAudioRecordView.h; sourceTree = "<group>"; };
+		76EE97161DD89D990001070C /* JWDAudioRecordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWDAudioRecordView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,8 +97,12 @@
 				76EE970D1DD86DE20001070C /* JWDRecorderModel.m */,
 				767DF4541DB6005E0012614D /* JWDRecorderController.h */,
 				767DF4551DB6005E0012614D /* JWDRecorderController.m */,
+				76EE97151DD89D990001070C /* JWDAudioRecordView.h */,
+				76EE97161DD89D990001070C /* JWDAudioRecordView.m */,
 				76EE970F1DD871C50001070C /* JWDRecorderCell.h */,
 				76EE97101DD871C50001070C /* JWDRecorderCell.m */,
+				76EE97121DD898330001070C /* JWDMeterArray.h */,
+				76EE97131DD898330001070C /* JWDMeterArray.m */,
 				76D89B221DB5B1D400B1CE89 /* Main.storyboard */,
 				76D89B251DB5B1D400B1CE89 /* Assets.xcassets */,
 				76D89B271DB5B1D400B1CE89 /* LaunchScreen.storyboard */,
@@ -241,10 +251,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76EE97171DD89D990001070C /* JWDAudioRecordView.m in Sources */,
 				76D89B211DB5B1D400B1CE89 /* ViewController.m in Sources */,
 				767DF4561DB6005E0012614D /* JWDRecorderController.m in Sources */,
 				76D89B1E1DB5B1D400B1CE89 /* AppDelegate.m in Sources */,
 				76EE97111DD871C50001070C /* JWDRecorderCell.m in Sources */,
+				76EE97141DD898330001070C /* JWDMeterArray.m in Sources */,
 				76D89B1B1DB5B1D400B1CE89 /* main.m in Sources */,
 				76EE970E1DD86DE20001070C /* JWDRecorderModel.m in Sources */,
 			);

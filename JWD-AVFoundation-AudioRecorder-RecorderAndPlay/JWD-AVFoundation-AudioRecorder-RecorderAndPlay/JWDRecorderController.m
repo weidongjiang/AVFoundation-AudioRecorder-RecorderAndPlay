@@ -9,12 +9,13 @@
 #import "JWDRecorderController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "JWDRecorderModel.h"
+#import "JWDMeterArray.h"
 
-
-@interface JWDRecorderController ()
+@interface JWDRecorderController ()<AVAudioRecorderDelegate>
 
 @property(nonatomic, strong)AVAudioRecorder *recorder;//!< <#value#>
 @property(nonatomic, strong)AVAudioPlayer *player;//!< <#value#>
+@property(nonatomic, strong)JWDMeterArray *meterArray;//!< <#value#>
 
 @end
 
@@ -42,6 +43,9 @@
         self.recorder = [[AVAudioRecorder alloc] initWithURL:fileUrl settings:settings error:&error];
         
         if(self.recorder){
+            
+            self.recorder.delegate = self;
+            self.recorder.meteringEnabled = YES;
             [self.recorder prepareToRecord];
         }else {
             NSLog(@"[AVAudioRecorder alloc] error:%@",[error localizedDescription]);
@@ -104,8 +108,31 @@
     if (self.player) {
         [self.player play];
     }
-
 }
+
+
+- (double)getLevelRecoder {
+    [self.recorder updateMeters];
+
+    float peak = [self.recorder peakPowerForChannel:0];
+    float average = [self.recorder averagePowerForChannel:0];
+    NSLog(@"最高 分贝 %f, 平均 %f",peak,average);
+    
+    double peaklowPassResults = pow(10, (0.05 * peak));
+    double averagelowPassResults = pow(10, (0.05 * average));
+    NSLog(@"peaklowPassResults%lf,averagelowPassResults%lf",peaklowPassResults,averagelowPassResults);
+    
+    return peaklowPassResults;
+}
+
+// 录制结束
+- (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag {
+     NSLog(@"audioRecorderDidFinishRecording");
+    
+    
+}
+
+
 
 @end
 

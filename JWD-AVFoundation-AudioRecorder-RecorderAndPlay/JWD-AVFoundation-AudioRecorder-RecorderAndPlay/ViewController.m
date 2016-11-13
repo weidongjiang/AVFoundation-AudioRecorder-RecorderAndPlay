@@ -10,6 +10,7 @@
 #import "JWDRecorderController.h"
 #import "JWDRecorderCell.h"
 #import "JWDRecorderModel.h"
+#import "JWDAudioRecordView.h"
 
 #define KScreenWidth       ([UIScreen mainScreen].bounds.size.width)
 #define KScreenHeight      ([UIScreen mainScreen].bounds.size.height)
@@ -21,7 +22,9 @@ static NSString  *KcellID = @"cellid";
 
 @property(nonatomic, strong)JWDRecorderController *recorderController;//!< <#value#>
 @property(nonatomic, strong)NSMutableArray        *dataArray;//!< 数据源
-@property(nonatomic, strong)UITableView           *tableview;//!< <#value#>
+@property(nonatomic, strong)UITableView           *tableview;//!< value
+@property(nonatomic, strong)CADisplayLink         *levelTimer;//!< <#value#>
+@property(nonatomic, strong)JWDAudioRecordView    *recordView ;//!< <#value#>
 @end
 
 
@@ -43,6 +46,7 @@ static NSString  *KcellID = @"cellid";
     } else {
         self.dataArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     }
+    
 }
 
 - (void)setUpUI{
@@ -71,19 +75,26 @@ static NSString  *KcellID = @"cellid";
     stopBtn.layer.masksToBounds = YES;
     [stopBtn addTarget:self action:@selector(stopBtnDidClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:stopBtn];
+    
+    
 
 }
 
 - (void)recorderBtnDidClick:(UIButton *)recorder {
     NSLog(@"录制");
     [self.recorderController record];
-
+    [self startMeterTimer];
+    
+    self.recordView = [[JWDAudioRecordView alloc] initWithFrame:CGRectMake(0, 64, KScreenWidth, KScreenHeight - 64*2)];
+    [self.view addSubview:self.recordView];
 }
 
 - (void)stopBtnDidClick:(UIButton *)recorder {
     NSLog(@"停止");
     [self.recorderController stop];
     [self showSaveDialog];
+    [self stopMeterTimer];
+    [self.recordView removeFromSuperview];
 }
 
 - (void)showSaveDialog {
@@ -103,16 +114,13 @@ static NSString  *KcellID = @"cellid";
         [self.recorderController saveRecordingWithName:filename completionHandler:^(BOOL success, id object) {
             
             if (success) {
-//                dispatch_async(dispatch_get_main_queue(), ^{
                 
                     JWDRecorderModel *model = (JWDRecorderModel *)object;
                     NSLog(@"%@,%@,%@",model.title,model.timeString,model.dateString);
                     [self.dataArray addObject:model];
                     [self saveMemos];
                     [self.tableview reloadData];
-                    
-//                });
-                
+                                    
                 
             } else {
                 NSLog(@"Error saving file: %@", [object localizedDescription]);
@@ -139,6 +147,38 @@ static NSString  *KcellID = @"cellid";
     NSString *archivePath = [docsDir stringByAppendingPathComponent:MEMOS_ARCHIVE];
     return [NSURL fileURLWithPath:archivePath];
 }
+
+
+
+- (void)startMeterTimer {
+    [self.levelTimer invalidate];
+    self.levelTimer = [CADisplayLink displayLinkWithTarget:self
+                                                  selector:@selector(updateMeter)];
+    self.levelTimer.preferredFramesPerSecond = 5;
+    [self.levelTimer addToRunLoop:[NSRunLoop currentRunLoop]
+                          forMode:NSRunLoopCommonModes];
+}
+
+- (void)updateMeter {
+
+    double levelRecoder = [self.recorderController getLevelRecoder];
+
+    [self.recordView updateRecordView:levelRecoder];
+}
+
+- (void)stopMeterTimer {
+
+    if (self.levelTimer) {
+        [self.levelTimer invalidate];
+        self.levelTimer = nil;
+    }
+}
+
+
+
+
+
+
 #pragma mark - UITableView Datasource and Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;

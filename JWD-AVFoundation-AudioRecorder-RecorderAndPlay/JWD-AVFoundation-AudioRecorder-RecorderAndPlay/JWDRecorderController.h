@@ -32,4 +32,8 @@ typedef void(^JWDRecordingSaveCompletionHandler)(BOOL,id);
 
 // 播放
 - (void)playRecodeWithMoedl:(JWDRecorderModel *)model;
+
+// 获取分贝
+- (double)getLevelRecoder;
+
 @end
