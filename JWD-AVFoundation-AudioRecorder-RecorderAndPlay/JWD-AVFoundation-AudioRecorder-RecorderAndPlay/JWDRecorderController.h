@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "JWDRecorderModel.h"
 typedef void(^JWDRecordingStopCompletionHandler) (BOOL);
 typedef void(^JWDRecordingSaveCompletionHandler)(BOOL,id);
 
@@ -30,5 +30,6 @@ typedef void(^JWDRecordingSaveCompletionHandler)(BOOL,id);
 - (void)saveRecordingWithName:(NSString *)name
             completionHandler:(JWDRecordingSaveCompletionHandler)saveHandler;
 
-
+// 播放
+- (void)playRecodeWithMoedl:(JWDRecorderModel *)model;
 @end

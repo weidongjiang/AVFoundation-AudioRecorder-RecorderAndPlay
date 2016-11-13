@@ -14,6 +14,7 @@
 @interface JWDRecorderController ()
 
 @property(nonatomic, strong)AVAudioRecorder *recorder;//!< <#value#>
+@property(nonatomic, strong)AVAudioPlayer *player;//!< <#value#>
 
 @end
 
@@ -96,7 +97,15 @@
     return  [docsdir stringByAppendingPathComponent:filename];
 }
 
+- (void)playRecodeWithMoedl:(JWDRecorderModel *)model {
 
+    [self.player stop];
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:model.url error:nil];
+    if (self.player) {
+        [self.player play];
+    }
+
+}
 
 @end
 

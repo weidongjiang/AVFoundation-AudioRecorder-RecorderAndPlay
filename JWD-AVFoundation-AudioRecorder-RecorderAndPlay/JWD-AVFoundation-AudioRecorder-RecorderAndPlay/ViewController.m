@@ -162,7 +162,7 @@ static NSString  *KcellID = @"cellid";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     JWDRecorderModel *model = self.dataArray[indexPath.row];
-//    [self.controller playbackMemo:memo];
+    [self.recorderController playRecodeWithMoedl:model];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
