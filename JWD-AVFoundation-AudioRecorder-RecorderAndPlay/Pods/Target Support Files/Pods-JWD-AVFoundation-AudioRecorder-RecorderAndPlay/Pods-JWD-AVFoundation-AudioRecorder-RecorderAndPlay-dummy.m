@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_JWD_AVFoundation_AudioRecorder_RecorderAndPlay : NSObject
+@end
+@implementation PodsDummy_Pods_JWD_AVFoundation_AudioRecorder_RecorderAndPlay
+@end

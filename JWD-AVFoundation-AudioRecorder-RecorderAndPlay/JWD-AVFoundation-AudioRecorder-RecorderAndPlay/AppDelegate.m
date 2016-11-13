@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface AppDelegate ()
 
@@ -16,7 +17,22 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    
+    NSError *error;
+    BOOL isSetCategory = [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
+    
+    if (!isSetCategory){
+        NSLog(@"Category Error: %@", [error localizedDescription]);
+    }
+    
+    BOOL isSetActive = [session setActive:YES error:&error];
+    if (!isSetActive){
+        NSLog(@"Category Error: %@", [error localizedDescription]);
+    }
+    
+    
     return YES;
 }
 

@@ -7,15 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		767DF4561DB6005E0012614D /* JWDRecorderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 767DF4551DB6005E0012614D /* JWDRecorderController.m */; };
 		76D89B1B1DB5B1D400B1CE89 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D89B1A1DB5B1D400B1CE89 /* main.m */; };
 		76D89B1E1DB5B1D400B1CE89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D89B1D1DB5B1D400B1CE89 /* AppDelegate.m */; };
 		76D89B211DB5B1D400B1CE89 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D89B201DB5B1D400B1CE89 /* ViewController.m */; };
 		76D89B241DB5B1D400B1CE89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76D89B221DB5B1D400B1CE89 /* Main.storyboard */; };
 		76D89B261DB5B1D400B1CE89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76D89B251DB5B1D400B1CE89 /* Assets.xcassets */; };
 		76D89B291DB5B1D400B1CE89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76D89B271DB5B1D400B1CE89 /* LaunchScreen.storyboard */; };
+		76EE970E1DD86DE20001070C /* JWDRecorderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EE970D1DD86DE20001070C /* JWDRecorderModel.m */; };
+		76EE97111DD871C50001070C /* JWDRecorderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EE97101DD871C50001070C /* JWDRecorderCell.m */; };
+		7A4F889ADF3D418FF4E8F177 /* libPods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0625E295CCBFA08C9D156B7D /* libPods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0625E295CCBFA08C9D156B7D /* libPods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B805FCBB471CE001F7F3E2E /* Pods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay/Pods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay.debug.xcconfig"; sourceTree = "<group>"; };
+		665A4665008CAD563A5921B5 /* Pods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay.release.xcconfig"; path = "Pods/Target Support Files/Pods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay/Pods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay.release.xcconfig"; sourceTree = "<group>"; };
+		767DF4541DB6005E0012614D /* JWDRecorderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWDRecorderController.h; sourceTree = "<group>"; };
+		767DF4551DB6005E0012614D /* JWDRecorderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWDRecorderController.m; sourceTree = "<group>"; };
 		76D89B161DB5B1D400B1CE89 /* JWD-AVFoundation-AudioRecorder-RecorderAndPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JWD-AVFoundation-AudioRecorder-RecorderAndPlay.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D89B1A1DB5B1D400B1CE89 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		76D89B1C1DB5B1D400B1CE89 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +35,10 @@
 		76D89B251DB5B1D400B1CE89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76D89B281DB5B1D400B1CE89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76D89B2A1DB5B1D400B1CE89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76EE970C1DD86DE20001070C /* JWDRecorderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWDRecorderModel.h; sourceTree = "<group>"; };
+		76EE970D1DD86DE20001070C /* JWDRecorderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWDRecorderModel.m; sourceTree = "<group>"; };
+		76EE970F1DD871C50001070C /* JWDRecorderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JWDRecorderCell.h; sourceTree = "<group>"; };
+		76EE97101DD871C50001070C /* JWDRecorderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JWDRecorderCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +46,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A4F889ADF3D418FF4E8F177 /* libPods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		297503CDCDB0A706E53505A2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5B805FCBB471CE001F7F3E2E /* Pods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay.debug.xcconfig */,
+				665A4665008CAD563A5921B5 /* Pods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		76D89B0D1DB5B1D400B1CE89 = {
 			isa = PBXGroup;
 			children = (
 				76D89B181DB5B1D400B1CE89 /* JWD-AVFoundation-AudioRecorder-RecorderAndPlay */,
 				76D89B171DB5B1D400B1CE89 /* Products */,
+				297503CDCDB0A706E53505A2 /* Pods */,
+				93AACA011FD645C60E62414F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +87,12 @@
 				76D89B1D1DB5B1D400B1CE89 /* AppDelegate.m */,
 				76D89B1F1DB5B1D400B1CE89 /* ViewController.h */,
 				76D89B201DB5B1D400B1CE89 /* ViewController.m */,
+				76EE970C1DD86DE20001070C /* JWDRecorderModel.h */,
+				76EE970D1DD86DE20001070C /* JWDRecorderModel.m */,
+				767DF4541DB6005E0012614D /* JWDRecorderController.h */,
+				767DF4551DB6005E0012614D /* JWDRecorderController.m */,
+				76EE970F1DD871C50001070C /* JWDRecorderCell.h */,
+				76EE97101DD871C50001070C /* JWDRecorderCell.m */,
 				76D89B221DB5B1D400B1CE89 /* Main.storyboard */,
 				76D89B251DB5B1D400B1CE89 /* Assets.xcassets */,
 				76D89B271DB5B1D400B1CE89 /* LaunchScreen.storyboard */,
@@ -79,6 +110,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		93AACA011FD645C60E62414F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0625E295CCBFA08C9D156B7D /* libPods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +125,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 76D89B2D1DB5B1D400B1CE89 /* Build configuration list for PBXNativeTarget "JWD-AVFoundation-AudioRecorder-RecorderAndPlay" */;
 			buildPhases = (
+				3C5295BF62E9A1B47CEE1B29 /* [CP] Check Pods Manifest.lock */,
 				76D89B121DB5B1D400B1CE89 /* Sources */,
 				76D89B131DB5B1D400B1CE89 /* Frameworks */,
 				76D89B141DB5B1D400B1CE89 /* Resources */,
+				7E60F22E1114B4CC3C65463B /* [CP] Embed Pods Frameworks */,
+				F9C6B3C98B3D3C5F14A6728D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -146,14 +188,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3C5295BF62E9A1B47CEE1B29 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7E60F22E1114B4CC3C65463B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay/Pods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9C6B3C98B3D3C5F14A6728D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay/Pods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		76D89B121DB5B1D400B1CE89 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				76D89B211DB5B1D400B1CE89 /* ViewController.m in Sources */,
+				767DF4561DB6005E0012614D /* JWDRecorderController.m in Sources */,
 				76D89B1E1DB5B1D400B1CE89 /* AppDelegate.m in Sources */,
+				76EE97111DD871C50001070C /* JWDRecorderCell.m in Sources */,
 				76D89B1B1DB5B1D400B1CE89 /* main.m in Sources */,
+				76EE970E1DD86DE20001070C /* JWDRecorderModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +362,7 @@
 		};
 		76D89B2E1DB5B1D400B1CE89 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B805FCBB471CE001F7F3E2E /* Pods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3ZPP94SLYH;
@@ -281,6 +375,7 @@
 		};
 		76D89B2F1DB5B1D400B1CE89 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 665A4665008CAD563A5921B5 /* Pods-JWD-AVFoundation-AudioRecorder-RecorderAndPlay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3ZPP94SLYH;
