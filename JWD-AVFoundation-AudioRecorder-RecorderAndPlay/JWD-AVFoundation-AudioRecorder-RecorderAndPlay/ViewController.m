@@ -14,7 +14,8 @@
 #define KScreenWidth       ([UIScreen mainScreen].bounds.size.width)
 #define KScreenHeight      ([UIScreen mainScreen].bounds.size.height)
 
-#define KcellID    @"cellid"
+#define MEMOS_ARCHIVE    @"memos.archive"
+static NSString  *KcellID = @"cellid";
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -30,20 +31,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
-    
+
     [self setUpUI];
     
     // 创建录制
     self.recorderController = [[JWDRecorderController alloc] init];
     
-    
+    NSData *data = [NSData dataWithContentsOfURL:[self archiveURL]];
+    if (!data) {
+        self.dataArray = [NSMutableArray array];
+    } else {
+        self.dataArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    }
 }
 
 - (void)setUpUI{
     
-    self.tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight-80) style:UITableViewStylePlain];
-    [self.view addSubview:self.tableview];
+    
     
     
     self.tableview.delegate = self;
@@ -95,14 +99,25 @@
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         NSString *filename = [alertController.textFields.firstObject text];
+        
         [self.recorderController saveRecordingWithName:filename completionHandler:^(BOOL success, id object) {
+            
             if (success) {
-                [self.dataArray addObject:object];
-//                [self saveMemos];
-                [self.tableview reloadData];
+//                dispatch_async(dispatch_get_main_queue(), ^{
+                
+                    JWDRecorderModel *model = (JWDRecorderModel *)object;
+                    NSLog(@"%@,%@,%@",model.title,model.timeString,model.dateString);
+                    [self.dataArray addObject:model];
+                    [self saveMemos];
+                    [self.tableview reloadData];
+                    
+//                });
+                
+                
             } else {
                 NSLog(@"Error saving file: %@", [object localizedDescription]);
             }
+            
         }];
     }];
     
@@ -111,13 +126,26 @@
     
     [self presentViewController:alertController animated:YES completion:nil];
 }
+#pragma mark - Memo Archiving
 
+- (void)saveMemos {
+    NSData *fileData = [NSKeyedArchiver archivedDataWithRootObject:self.dataArray];
+    [fileData writeToURL:[self archiveURL] atomically:YES];
+}
+
+- (NSURL *)archiveURL {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docsDir = [paths objectAtIndex:0];
+    NSString *archivePath = [docsDir stringByAppendingPathComponent:MEMOS_ARCHIVE];
+    return [NSURL fileURLWithPath:archivePath];
+}
 #pragma mark - UITableView Datasource and Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    NSLog(@"self.dataArray.count--%lu",(unsigned long)self.dataArray.count);
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -153,8 +181,20 @@
     }
 }
 
+- (NSMutableArray *)dataArray {
 
-
+    if (_dataArray==nil){
+        _dataArray = [[NSMutableArray alloc] init];
+    }
+    return _dataArray;
+}
+- (UITableView *)tableview {
+    if (_tableview==nil){
+        _tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 40, KScreenWidth, KScreenHeight-80) style:UITableViewStylePlain];
+        [self.view addSubview:_tableview];
+    }
+    return _tableview;
+}
 @end
 
 
