@@ -8,7 +8,7 @@
 
 #import "JWDRecorderModel.h"
 
-#define TITLE_KEY        @"title"
+#define TITLE_KEY          @"title"
 #define URL_KEY            @"url"
 #define DATE_STRING_KEY    @"dateString"
 #define TIME_STRING_KEY    @"timeString"

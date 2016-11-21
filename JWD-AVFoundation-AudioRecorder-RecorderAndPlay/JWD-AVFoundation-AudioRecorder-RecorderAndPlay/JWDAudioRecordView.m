@@ -148,7 +148,7 @@
 - (UILabel *)markLabel {
     if (_markLabel == nil) {
         _markLabel = [[UILabel alloc] init];
-        _markLabel.text = @"手指上滑,取消发送";
+        _markLabel.text = @"正在录制中...";
         _markLabel.textColor = [UIColor whiteColor];
         _markLabel.font = [UIFont boldSystemFontOfSize:14];
         _markLabel.textAlignment = NSTextAlignmentCenter;

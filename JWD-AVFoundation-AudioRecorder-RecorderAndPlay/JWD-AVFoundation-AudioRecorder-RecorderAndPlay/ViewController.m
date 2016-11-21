@@ -25,6 +25,9 @@ static NSString  *KcellID = @"cellid";
 @property(nonatomic, strong)UITableView           *tableview;//!< value
 @property(nonatomic, strong)CADisplayLink         *levelTimer;//!< <#value#>
 @property(nonatomic, strong)JWDAudioRecordView    *recordView ;//!< <#value#>
+
+@property(nonatomic, strong)UIButton *stopBtn;//!< <#value#>
+@property(nonatomic, strong)UIButton *recorderBtn;//!< <#value#>
 @end
 
 
@@ -60,8 +63,11 @@ static NSString  *KcellID = @"cellid";
     
     
     
+    
     UIButton *recorderBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, KScreenHeight-50, (KScreenWidth-30)*0.5, 40)];
-    [recorderBtn setTitle:@"录制" forState:UIControlStateNormal];
+    self.recorderBtn = recorderBtn;
+    [self.recorderBtn setTitle:@"录制" forState:UIControlStateNormal];
+    recorderBtn.selected = YES;
     recorderBtn.backgroundColor = [UIColor greenColor];
     recorderBtn.layer.cornerRadius = 10;
     recorderBtn.layer.masksToBounds = YES;
@@ -69,6 +75,7 @@ static NSString  *KcellID = @"cellid";
     [self.view addSubview:recorderBtn];
     
     UIButton *stopBtn = [[UIButton alloc] initWithFrame:CGRectMake((KScreenWidth-30)*0.5+20, KScreenHeight-50, (KScreenWidth-30)*0.5, 40)];
+    self.stopBtn = stopBtn;
     [stopBtn setTitle:@"停止" forState:UIControlStateNormal];
     stopBtn.backgroundColor = [UIColor redColor];
     stopBtn.layer.cornerRadius = 10;
@@ -76,25 +83,46 @@ static NSString  *KcellID = @"cellid";
     [stopBtn addTarget:self action:@selector(stopBtnDidClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:stopBtn];
     
-    
+    self.recordView = [[JWDAudioRecordView alloc] initWithFrame:CGRectMake(0, 64, KScreenWidth, KScreenHeight - 64*2)];
+    self.recordView.hidden = YES;
+    [self.view addSubview:self.recordView];
 
 }
 
 - (void)recorderBtnDidClick:(UIButton *)recorder {
     NSLog(@"录制");
-    [self.recorderController record];
-    [self startMeterTimer];
     
-    self.recordView = [[JWDAudioRecordView alloc] initWithFrame:CGRectMake(0, 64, KScreenWidth, KScreenHeight - 64*2)];
-    [self.view addSubview:self.recordView];
+    if (self.recorderBtn.selected) {
+        
+        [self.recorderController record];
+        [self startMeterTimer];
+        self.recordView.hidden = NO;
+        
+        self.recorderBtn.selected = NO;
+        [self.recorderBtn setTitle:@"暂停" forState:UIControlStateNormal];
+        [self.recorderBtn setBackgroundColor:[UIColor redColor]];
+
+    }else{
+        [self.recorderBtn setTitle:@"继续" forState:UIControlStateNormal];
+        [self.recorderBtn setBackgroundColor:[UIColor greenColor]];
+        self.recordView.hidden = YES;
+        self.recorderBtn.selected = YES;
+        [self.recorderController pause];
+    }
+    
 }
+
+
 
 - (void)stopBtnDidClick:(UIButton *)recorder {
     NSLog(@"停止");
     [self.recorderController stop];
     [self showSaveDialog];
     [self stopMeterTimer];
-    [self.recordView removeFromSuperview];
+    self.recordView.hidden = YES;
+    [self.recorderBtn setTitle:@"录制" forState:UIControlStateNormal];
+    [self.recorderBtn setBackgroundColor:[UIColor greenColor]];
+
 }
 
 - (void)showSaveDialog {
