@@ -12,6 +12,4 @@
 @interface JWDRecorderCell : UITableViewCell
 @property(nonatomic, strong)JWDRecorderModel *model;//!< <#value#>
 
-- (BOOL)deleteMemo;
-
 @end

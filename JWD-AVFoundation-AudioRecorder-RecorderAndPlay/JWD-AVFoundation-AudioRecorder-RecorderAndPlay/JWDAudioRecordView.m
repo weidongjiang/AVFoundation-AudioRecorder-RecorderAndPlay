@@ -61,16 +61,6 @@
     
     self.tooLongImageView.frame = CGRectMake((self.frame.size.width - 120)/2.0, (self.frame.size.height - 120)/2.0, 120, 120);
     
-    CGFloat backViewW = self.backView.frame.size.width;
-    CGFloat backViewH = self.backView.frame.size.height;
-    CGFloat markLabelY = self.markLabel.frame.origin.y;
-    
-//    self.numCountDownImageView.frame = CGRectMake((backViewW-39)*0.5, (markLabelY - 51)*0.5, 39, 51);
-//    self.numCountDownImageView.image = [UIImage imageNamed:@"YXLiveChatRecordCountDown_9"];
-//    [self.backView addSubview:self.numCountDownImageView];
-
-    
-
 }
 
 -(void)updateRecordView:(double)level {

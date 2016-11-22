@@ -54,14 +54,9 @@ static NSString  *KcellID = @"cellid";
 
 - (void)setUpUI{
     
-    
-    
-    
     self.tableview.delegate = self;
     self.tableview.dataSource = self;
     [self.tableview registerClass:[JWDRecorderCell class] forCellReuseIdentifier:KcellID];
-    
-    
     
     
     UIButton *recorderBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, KScreenHeight-50, (KScreenWidth-30)*0.5, 40)];
@@ -97,7 +92,6 @@ static NSString  *KcellID = @"cellid";
         [self.recorderController record];
         [self startMeterTimer];
         self.recordView.hidden = NO;
-        
         self.recorderBtn.selected = NO;
         [self.recorderBtn setTitle:@"暂停" forState:UIControlStateNormal];
         [self.recorderBtn setBackgroundColor:[UIColor redColor]];
@@ -183,8 +177,7 @@ static NSString  *KcellID = @"cellid";
     self.levelTimer = [CADisplayLink displayLinkWithTarget:self
                                                   selector:@selector(updateMeter)];
     self.levelTimer.preferredFramesPerSecond = 5;
-    [self.levelTimer addToRunLoop:[NSRunLoop currentRunLoop]
-                          forMode:NSRunLoopCommonModes];
+    [self.levelTimer addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
 }
 
 - (void)updateMeter {
@@ -212,7 +205,6 @@ static NSString  *KcellID = @"cellid";
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"self.dataArray.count--%lu",(unsigned long)self.dataArray.count);
     return self.dataArray.count;
 }
 
